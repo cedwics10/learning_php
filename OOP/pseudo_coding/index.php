@@ -22,10 +22,10 @@ if (isset($_POST['btsubmit'])) {
     <h1>Tarif assurance plus (POO)</h1>
     <?= ($tarifFinal != '') ? "<h2>Votre tarif est : {$tarifFinal}</h2>" : '' ?>
     <form method="post">
-        <label for="age">Votre âge :</label> <input type="number" name="age" /><br />
-        <label for="anciennete">Votre ancienneté :</label> <input type="number" name="anciennete" /><br />
-        <label for="dureePermis">Depuis combien de temps avez-vous eu le permis</label> <input type="number" name="dureePermis" /><br />
-        <label for="nombreAcc">Le nombre d'accidents :</label> <input type="number" name="nombreAcc" /><br />
+        <label for="age">Votre âge :</label> <input type="number" name="age" value="<?= isset($age) ? $age : '' ?>" /><br />
+        <label for="anciennete">Votre ancienneté :</label> <input type="number" name="anciennete" value="<?= isset($anciennete) ? $anciennete : '' ?>" /><br />
+        <label for=" dureePermis">Depuis combien de temps avez-vous eu le permis</label> <input type="number" name="dureePermis" value="<?= isset($dureePermis) ? $dureePermis : '' ?>" /><br />
+        <label for=" nombreAcc">Le nombre d'accidents :</label> <input type="number" name="nombreAcc" value="<?= isset($nombreAcc) ? $nombreAcc : '' ?>" /><br />
         <input type="submit" value="Envoyer" />
         <input type="hidden" name="btsubmit" />
     </form>

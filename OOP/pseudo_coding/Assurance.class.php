@@ -35,7 +35,7 @@ class Assurance
         else if ($this->age > self::AGE_SEUIL and $this->dureePermis <= self::AN_PERMIS_MIN)
             $this->tarif = $this->tarif - 1;
 
-        $this->tarif = $this->tarif - $this->nombreAcc;
+
 
         if ($this->tarif < 0)
             return false;
@@ -43,12 +43,13 @@ class Assurance
         if ($this->anciennete >= self::AN_PERMIS_MIN) {
             $this->tarif = $this->tarif + 1;
         }
+        $this->tarif = min($this->tarif - $this->nombreAcc, 4);
         $this->tarifCalcule = true;
     }
 
     public function getCouleur()
     {
-        if (in_array($this->tarif, range(0, 3)))
+        if (in_array($this->tarif, range(1, 4)))
             return self::TARIF[$this->tarif - 1];
 
         return "refusé";
