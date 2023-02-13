@@ -1,5 +1,5 @@
 <?php
-class Assurance
+class AssurancePlus
 {
     const TARIF = ['ROUGE', 'ORANGE', 'VERT', 'BLEU'];
 
@@ -11,7 +11,8 @@ class Assurance
     private int $dureePermis;
     private int $nombreAcc;
 
-    private int $tarif = 4; // le tarif par défaut est bleu
+    private int $tarif;
+
     private bool $tarifCalcule = false;
 
     public function __construct(int $age, int $anciennete, int $dureePermis, int $nombreAcc)
@@ -24,26 +25,20 @@ class Assurance
 
     public function calculerTarif()
     {
-        if ($this->tarifCalcule)
-            return false;
+        $tarif = 4; // le tarif par défaut est bleu
 
         //$tarif-- : décrémente de 1
         if ($this->age <= self::AGE_SEUIL and $this->dureePermis <= self::AN_PERMIS_MIN)
-            $this->tarif = $this->tarif - 3;
+            $tarif = $tarif - 3;
         else if ($this->age <= self::AGE_SEUIL and $this->dureePermis > self::AN_PERMIS_MIN)
-            $this->tarif = $this->tarif - 2;
+            $tarif = $tarif - 2;
         else if ($this->age > self::AGE_SEUIL and $this->dureePermis <= self::AN_PERMIS_MIN)
-            $this->tarif = $this->tarif - 1;
-
-
-
-        if ($this->tarif < 0)
-            return false;
+            $tarif = $tarif - 1;
 
         if ($this->anciennete >= self::AN_PERMIS_MIN) {
-            $this->tarif = $this->tarif + 1;
+            $tarif = $tarif + 1;
         }
-        $this->tarif = min($this->tarif - $this->nombreAcc, 4);
+        $tarif = min($tarif - $this->nombreAcc, 4);
         $this->tarifCalcule = true;
     }
 

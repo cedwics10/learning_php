@@ -1,0 +1,19 @@
+Créer la classe suivante :
+Reservoir
+float volume
+float niveau
+--------------
++ remplir(v) //remplir le réservoir d'une quantié v
++ vider(v) //vider le réservoir d'une quantié v
+
+Créer la classe MachineAMoteur suivante :
+Reservoir reservoir
+----------------
++ faireLePlein()
+
+Créer la classe Voiture héritée de MachineAMoteur suivante :
+float conso //nombre de litres consommés pour 100km
+--------------
++ rouler(nbkm)
+
+
