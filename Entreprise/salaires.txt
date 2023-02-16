@@ -1,0 +1,44 @@
+﻿Une entreprise a un certain nombre d’employés.
+Un employé est connu par son nom, son matricule (qui l’identifie de façon unique) et son salaire mensuel.
+
+Question 1 :
+Ecrivez la classe Salarie :
+class Salarie
+string $nom
+string $id
+float $salaire
+--------------
++ __construct($nom,$id,$salaire)
++ getSalaire() : float
++ __toString() : string
+
+
+Question 2 : 
+Les commerciaux ont un salaire composé d’un fixe et d’un intéressement proportionnel à leurs
+ventes.
+Par défaut le taux est de 10% des ventes et il est le même pour tous les commerciaux. 
+
+Ecrivez la sous-classe pour les commerciaux :
+class Commercial extends Salarie
+* static float taux=10.0;
+* float $vente  
+----------------
++ setVente($v)
++ getSalaire()
+
+
+Question 3 :
+Ecrivez une classe représentant tout le personnel de l’entreprise, avec une méthode calculant la
+somme des salaires à verser.
+class Entreprise
+- string $label
+- array $salaries
+----------------
++ __construct($label)
++ AjouterSalarie(Salarie $s)
++ calculerMasseSalariale() :float
+ 
+
+Question 4 :
+Créer une nouvelle catégorie d'employé : les techniciens spécialisés.
+Il possèdent un salaire de base et une prime de risque qui est variable.
