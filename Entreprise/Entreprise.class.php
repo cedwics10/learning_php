@@ -1,8 +1,8 @@
 <?php
 class Entreprise
 {
-    public string $label;
-    public array $salaries;
+    private string $label;
+    private array $salaries;
 
 
     public function  __construct(string $label)
@@ -16,6 +16,15 @@ class Entreprise
 
     public function  calculerMasseSalariale(): float
     {
-        $this->salaries->ge
+        $masseSa = (float) 0;
+        foreach ($this->salaries as $salarie) {
+            $masseSa += $salarie->getSalaire();
+        }
+        return $masseSa;
+    }
+
+    public function __toString()
+    {
+        return '* L\'entreprise "' . $this->label . '" a pour masse salariale : ' . $this->calculerMasseSalariale() . '€<br />';
     }
 }

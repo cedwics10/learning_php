@@ -1,10 +1,10 @@
 <?php
 class Salarie
 {
-    private const DEVISE = '€';
-    private string $nom;
-    private string $id;
-    private float $salaire;
+    protected string $nom;
+    protected string $id;
+    protected float $salaire;
+
 
     public function __construct($nom, $id, $salaire)
     {
@@ -20,7 +20,7 @@ class Salarie
 
     public function __toString(): string
     {
-        return 'Le salarié ' . $this->nom . ' au numéro de matricule ' . $this->id
-            . ' a pour salaire : ' . strval($this->getSalaire()) . self::DEVISE . '<br />';
+        return '* Le salarié ' . $this->nom . ' au numéro de matricule ' . strval($this->id) . '<br />'
+            . $this->nom . ' a pour salaire : ' . strval($this->getSalaire()) . ' €<br />';
     }
 }
