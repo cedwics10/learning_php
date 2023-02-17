@@ -1,0 +1,71 @@
+Modèle conceptuel de données pour baseavion
+<MCD>
+    <entités>
+    pilote
+    - pi_id (identifiant)
+    - pi_nom (varchar)
+
+    avion
+    - av_id (identifiant)
+    - av_const (varchar)
+    - av_modele (varchar)
+    - av_capacite (int)
+
+    ville
+    - vi_id (identifiant)
+    - vi_nom (varchar)
+    </entités>
+
+    <associations>
+    localiser_pilote :
+	    - pilote 1,1
+    - ville 0,n
+
+    localiser_avion :
+    - avion 1,1
+    - ville 0,n
+
+    voler (heure_depart,heure_arrivee)
+    - pilote 1,n
+    - avion 1,n
+    - ville_depart 1,n
+    - ville_arrivee 1,n
+    </associations>
+</MCD>
+<MCDG>
+localiser_pilote : pilote 1,1 ; ville 0,n
+localiser_avion : avion 1,1 ; ville 0,n
+voler : pilote 1,n ; avion 1,n ; ville_depart 1,n ; ville_arrivee 1,n
+</MVDG>
+
+Modèle Logique de données (les tables)
+<MLD>
+    <tables>
+    pilote
+    - pi_id (PK)
+    - pi_nom (varchar)
+    - pi_site (FK)
+
+    avion
+    - av_id (PK)
+    - av_const (varchar)
+    - av_modele (varchar)
+    - av_capacite (int)
+    - av_site(FK)
+
+    ville
+    - vi_id (PK)
+    - vi_nom (varchar)
+
+    vol
+    - vo_id (PK)
+    - vo_pilote (FK)
+    - vo_avion (FK)
+    - vo_heure_depart
+    - vo_heure_arrivee
+    - vo_site_depart(FK)
+	    - vo_site_Arrivee(FK)
+	
+    </tables>
+</MLD>
+	

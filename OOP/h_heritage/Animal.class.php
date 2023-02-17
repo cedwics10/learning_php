@@ -4,7 +4,10 @@ class Animal
     protected string $nom;
     protected string $race;
     protected int $vie;
+
     protected int $degats;
+    protected int $resistance;
+    protected bool $laisse;
 
     public function __construct(string $nom)
     {

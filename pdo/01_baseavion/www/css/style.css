@@ -1,0 +1,76 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header,
+footer,
+nav,
+main {
+    border: 1px solid #CCC;
+    margin: 10px;
+    padding: 10px;
+}
+
+header,
+footer {
+    background-color: rgb(212, 212, 231);
+}
+
+footer {
+    text-align: center;
+}
+
+#logo {
+    width: 100px;
+}
+
+.titre {
+    font-size: 80px;
+    vertical-align: 20px;
+    text-shadow: 3px 3px 4px rgb(21, 8, 97);
+}
+
+.punchline {
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+nav li {
+    display: inline-block;
+    margin: -5px 5px -5px 5px;
+    padding: 5px;
+    border: 1px solid rgb(95, 210, 95);
+}
+
+nav li:hover {
+    background-color: #456;
+}
+
+nav li a {
+    text-decoration: none;
+    color: #456;
+}
+
+nav li a:hover {
+    color: #FFF;
+}
+
+/* class qui permet de masquer du texte qui sera néanmoins lu par un lecteur d'écran */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+table,
+td,
+th {
+    border: 1px solid #123;
+    border-collapse: collapse;
+    padding: 10px;
+}

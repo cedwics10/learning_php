@@ -1,48 +1,57 @@
 <?php
 class Reservoir
 {
-    private float $volume;
-    private float $niveau;
+    //contenance max du réservoir
+    protected float $volume;
+    //niveau d'essence
+    protected float $niveau;
 
-    private const NIVEAU_MAX = 100.0;
-    private const NIVEAU_MIN = 0.0;
-    private const VOLUME_MIN = 10.0;
-    private const VOLUME_MAX = 100.0;
-
-    public function __construct(float $niveau, float $volume)
+    public function __construct(float $volume, float $niveau)
     {
-        $this->niveau = $niveau;
-        $this->volume = $volume;
+        if ($volume > 0)
+            $this->volume = $volume;
+        else
+            echo "Erreur volume négatif impossible";
+
+        $this->niveau = 0;
+        $this->remplir($niveau);
     }
 
-    public function getNiveau()
+    public function getVolume(): float
     {
-        echo $this->niveau;
+        return $this->volume;
     }
 
-    public function getVolume()
+    public function getNiveau(): float
     {
-        echo $this->volume;
-    }
-
-    public function __toString()
-    {
-        echo  'Le réservoir a pour niveau ' . strval($this->niveau) . ' et a pour volume ' . strval($this->volume);
+        return $this->niveau;
     }
 
     public function remplir(float $v)
     {
-        if ($this->niveau + $v <= self::NIVEAU_MAX)
-            $this->niveau += $v;
-        else
-            $this->niveau = self::NIVEAU_MAX;
+        if ($v >= 0) {
+            $x = $this->niveau + $v;
+            if ($x >= 0 and $x <= $this->volume)
+                $this->niveau = $x;
+        }
     }
 
-    public function vider(float $v)
+    public function vider(float $v): float
     {
-        if ($this->niveau - $v >= self::NIVEAU_MIN)
-            $this->niveau -= $v;
-        else
-            $this->niveau = self::NIVEAU_MIN;
+        if ($v >= 0) {
+            $lRestant = $this->niveau - $v;
+            if ($lRestant >= 0 and $lRestant <= $this->volume) {
+                $this->niveau = $lRestant;
+                return 0.0;
+            } else {
+                $this->niveau = 0;
+                return -$lRestant;
+            }
+        }
+    }
+
+    public function __toString(): string
+    {
+        return "Volume : $this->volume,<br />niveau : $this->niveau";
     }
 }
