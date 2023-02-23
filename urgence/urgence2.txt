@@ -1,0 +1,11 @@
+
+Class Véhicule
+- identifiant UNIQUE
+$km = 0 (consante)
+- PC extends class Secours
+Class engin exntends Secours
+$nombreBlesses 
+RG : tous les engins permettent de transporter
+au moins une personne blessée.
+
+

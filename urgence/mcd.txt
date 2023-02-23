@@ -1,0 +1,24 @@
+MCD urgence
+-----------
+entités :
+- vehicule
+- personne
+- société
+
+associations : 
+posseder :
+- societe : 1,n
+- vehicule : 1,1
+
+transporter (numero intervention):
+- véhicule : 0,n
+- personne : 1,n
+
+MLD :
+transporter
+- num_inyervention
+- num véhicule
+- num- personne
+
+
+

@@ -1,0 +1,14 @@
+CREATION D'UN GENERATEUR DE GETTER et SETTER :
+Créer un formulaire composé 
+- d'une textarea avec le label "attributs",
+- d'un bouton "générer",
+- d'une textarea avec le label "résultat".
+
+L'utilisateur devra saisir dans la textarea la liste des attributs de sa classe avec leurs types, par exemple :
+string $nom
+string $prenom
+float $salaire
+
+Développer un programme qui va générer le code PHP des getter et setter et l'afficher dans la zone "résultat".
+Vous pouvez créer ce programme en PHP ou en javascript.
+

@@ -1,9 +1,9 @@
 <?php
 require("../include/inc_config.php");
 //envoie d'une requête
-$result = mysqli_query($link, "select * from pilote,ville where pi_site=vi_id order by pi_id");
-//récupération de tous les enregistrements dans un tableau
-$data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+$sql = "select * from pilote,ville where pi_site=vi_id order by pi_id";
+$resultat = $link->query($sql);
+$data = $resultat->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -43,11 +43,11 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 echo "<tr>";
                 foreach ($ligne as $cle => $valeur) {
                     //protection contre l'injection de javascript/HTML
-                    $valeur=htmlentities($valeur,ENT_QUOTES,"UTF-8");
+                    $valeur = htmlentities($valeur, ENT_QUOTES, "UTF-8");
                     echo "<td>$valeur</td>";
                 }
-                echo "<td><a href='pilote_edit.php?id={$ligne["pi_id"]}'>Edit</a></td>"; 
-                echo "<td><a href='pilote_delete.php?id={$ligne["pi_id"]}'>Delete</a></td>"; 
+                echo "<td><a href='pilote_edit.php?id={$ligne["pi_id"]}'>Edit</a></td>";
+                echo "<td><a href='pilote_delete.php?id={$ligne["pi_id"]}'>Delete</a></td>";
                 echo "</tr>";
             }
             ?>

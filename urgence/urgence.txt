@@ -1,0 +1,84 @@
+Objectifs
+- Savoir concevoir et programmer une hiérarchie de classes
+- Savoir utiliser les attributs et méthodes statiques
+- Comprendre les mécanismes de l’héritage d’attributs et de méthodes
+- Connaître les notions de polymorphisme et de résolution d’appel de méthode
+
+
+II. Gestion d’une société de secourisme
+Une société médicale souhaite informatiser la gestion de ses véhicules de secours apportés par les secouristes lors qu’ils sont appelés en cas d’accident.
+
+Chaque véhicule est caractérisé par un identificateur unique. 
+Parmi les véhicules de secours que gère la société il y a des engins et des PC (Poste de Commandement).
+
+Un PC (Poste de Commandement) sert de support pour l’organisation des secours. 
+Il reste sur place durant l’intervention et ne peut donc pas transporter de personne blessée.
+
+A chaque engin correspond un nombre de personnes blessées qu’il peut transporter.
+Tous les engins permettent de transporter au moins une personne blessée.
+Un VA (Véhicule d’Assistance) permet de transporter 1 personne blessée
+Un VS (Véhicule de Secours) permet de transporter 2 personnes blessées
+La société comporte actuellement 2 PC, 3 VS et 2 VA.
+La société prévoit d’acheter dans les prochaines années d’autres types d’engins permettant notamment de transporter plus de deux personnes.
+
+Une intervention est carcatérisée par :
+- un identifiant
+- un nombre de kilometres
+- un tableau des blessés avec les véhicules qui les transportent
+
+Les méthodes de l'intervention sont :
+- charger(Vehicule $v, string $nom) : ajoute un blessé dans le tableau des blessés
+- calculCout() : calcul le cout de l'intervention
+
+Régles pour calculer le cout d'une intervention :
+	- pour le PC, le cout est fixe : 1000 Euros
+	- pour les engins, cela dépend :
+		- VA : 300 Euros
+		- VS : le cout est de 600 Euros pour les distances supérieures à 50 km, sinon le cout est de 150 Euros par personne transporté
+
+Une sociéte médicale sera caractérisée par :
+- son nom,
+- le tableau de ses véhicules
+- le tableau de ses interventions
+
+Vous pouvez vous aider du programme principal suivant :		
+<?php
+//Faire les require_once pour les classes utilisées
+
+ //créer une société médicale
+ $societe = new SocieteMed();
+ 
+ // Créer les véhicules
+ $pc1 = new PC();
+ $pc2 = new PC();
+ $vs1 = new VS();
+ $vs2 = new VS();
+ $vs3 = new VS();
+ $va1 = new VA();
+ $va2 = new VA();
+ 
+ // Ajouter les véhicules à la société
+ $societe.ajouterVehicule($pc1);
+ $societe.ajouterVehicule($pc2);
+ $societe.ajouterVehicule($vs1);
+ $societe.ajouterVehicule($vs2);
+ $societe.ajouterVehicule($vs3);
+ $societe.ajouterVehicule($va1);
+ $societe.ajouterVehicule($va2);
+
+ // ajouter une intervention
+ $numeroIntervention = 17 ;
+ $distance = 35 ;
+ $intervention=$societe.creerIntervention($numeroIntervention,$distance);
+
+ //charger des blessés
+ $intervention.charger($vs1,"Dupont")
+ $intervention.charger($vs2,"Martin");
+ $intervention.charger($vs2,"Durand");
+ 
+ // Afficher les informations sur tous les véhicules
+ echo $societe;
+ 
+ // Calculer le cout de l'intervention
+ 
+ 

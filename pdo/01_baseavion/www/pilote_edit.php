@@ -2,32 +2,44 @@
 require("../include/inc_config.php");
 extract($_GET);
 if (isset($_POST["btsubmit"])) {
-    $_POST = array_map("mres",$_POST);
+    $_POST = array_map("mres", $_POST);
     extract($_POST);
-    if ($pi_id > 0)
-        //récupérer les données du formulaires et faire une requete de mise à jour des données de l'enregistrement
-        $sql = "update pilote set pi_nom='$pi_nom',pi_site='$pi_site' where pi_id=$pi_id";
-    else
-        $sql = "insert into pilote values (null,'$pi_nom','$pi_site')";
+    if ($pi_id > 0) {
+        $sql = "update pilote set pi_nom=:pi_nom,pi_site=:pi_site where pi_id=:pi_id";
+        $stmt = $link->prepare($sql);
+        $stmt->bindValue(":pi_nom", $av_const, PDO::PARAM_STR);
+        $stmt->bindValue(":pi_site", $av_modele, PDO::PARAM_STR);
+        $stmt->bindValue(":pi_id", $av_capacite, PDO::PARAM_INT);
+    } else {
+        $sql = "insert into pilote values (null,:pi_nom,:pi_site)";
+        $stmt = $link->prepare($sql);
+        $stmt->bindValue(":pi_nom", $av_const, PDO::PARAM_STR);
+        $stmt->bindValue(":pi_site", $av_modele, PDO::PARAM_STR);
+    }
 
-    //execution de la requete
-    if (mysqli_query($link, $sql))
-        //si ok alors rediriger sur le crud avion
+    try {
+        //exécute une requête préparée
+        $stmt = $link->prepare($sql);
+        $res = $stmt->execute($sql);
         header("location:pilote_list.php");
-    else
-        //sinon afficher l'erreur
-        echo mysqli_error($link);
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
 } else if (isset($id)) {
     if ($id > 0) {
-        //envoie d'une requête
-        $result = mysqli_query($link, "select * from pilote where pi_id=$id");
+        //envoie d'une requête $id avec l'étiquette :id
+        $sql = "select * from pilote where id=:id";
+        $stmt = $link->prepare($sql);
+        $stmt->bindValue("pi_id")
+
+        $result = mysqli_query($link,);
         //récupération un seul enregsitrement dans un tableau associatif
-        $data = mysqli_fetch_assoc($result);
-        $data = array_map("mhe",$data);
+        $data = $res->fetchAssoc();
+        $data = array_map("mhe", $data);
         extract($data);
     } else {
         $pi_id = 0;
-        $pi_nom = "";        
+        $pi_nom = "";
         $pi_site = "";
     }
 } else {
@@ -66,7 +78,7 @@ if (isset($_POST["btsubmit"])) {
             <p>
                 <label for="pi_nom">pi_nom</label>
                 <input type="text" name="pi_nom" id="pi_nom" value="<?= $pi_nom ?>">
-            </p>            
+            </p>
             <p>
                 <label for="pi_site">pi_site</label>
                 <select name="pi_site" id="pi_site">
