@@ -14,7 +14,7 @@ class Intervention
 
     public function mobiliser(Vehicule $v)
     {
-        $v->intervenir($this->id);        
+        $v->intervenir($this->id);
     }
 
     public function charger(Engin $v, string $nom)
@@ -26,12 +26,10 @@ class Intervention
 
     public function __toString()
     {
-        $s="$this->id, km=$this->km <br>";
-        foreach($this->blesses as $ligne)
-            $s.=$ligne["vehicule"] . " : " . $ligne["nom"] . "<br>";
-        
+        $s = "$this->id, km=$this->km <br>";
+        foreach ($this->blesses as $ligne)
+            $s .= $ligne["vehicule"] . " : " . $ligne["nom"] . "<br>";
+
         return $s;
     }
-
-
 }
