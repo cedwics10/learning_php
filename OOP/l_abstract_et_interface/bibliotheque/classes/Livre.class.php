@@ -1,13 +1,21 @@
 <?php
+
 class Livre extends Document
 {
-    protected int $nbPages;
+    // protected string $noEnreg;
     protected string $titre;
 
-    public function __construct(string $titre, int $nbPages)
+    protected string $auteur;
+    protected int $nbPages;
+
+    public function __construct(string $noEnreg, string $titre, string $auteur, int $nbPages)
     {
-        $this->nbPages = $nbPages;
+        $this->$noEnreg = $noEnreg;
+
         $this->titre = $titre;
+        $this->auteur = $auteur;
+
+        $this->nbPages = $nbPages;
     }
 
     public function getNbPages(): int
@@ -15,8 +23,7 @@ class Livre extends Document
         return $this->nbPages;
     }
 
-
-    public function getDifficulte(): float
+    public function getNiveau(): float
     {
         return $this->nbPages;
     }
@@ -26,12 +33,10 @@ class Livre extends Document
         return $this->titre;
     }
 
-
     public function getNoEnreg(): string
     {
         return $this->noEnreg;
     }
-
 
     public function setNoEnreg(string $noEnreg)
     {

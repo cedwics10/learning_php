@@ -1,4 +1,0 @@
-Il faut créer un code pour pouvoir créer un prototype du projet réussite.
-Un utilisateur s'inscrit, se connecte et peut accéder au forum comme il l'entend !
-Il pourra aller sur les forums auxquels il est auotirsé d'accès et il pourra faire des 
-messages dessus.
