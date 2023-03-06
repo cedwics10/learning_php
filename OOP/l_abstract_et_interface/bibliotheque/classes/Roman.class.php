@@ -1,18 +1,16 @@
 <?php
-interface Recompensable
+class Roman extends Livre
 {
-    const RECOMPENSES = ['GONCOURT', 'MEDICIS', 'INTERALLIE', 'RENAUDOT', 'FEMINA', null];
-}
-
-
-class Roman extends Livre implements Recompensable
-{
-    private string $prixLitt;
+    protected const RECOMPENSES = ['GONCOURT', 'MEDICIS', 'INTERALLIE', 'RENAUDOT', 'FEMINA', null];
+    protected string $prixLitt;
 
     public function __construct(string $noEnreg, string $titre, string $auteur, int $nbPages, string $prixLitt = '')
     {
         parent::__construct($noEnreg, $titre, $auteur, $nbPages);
-        $this->setPrixLitt($prixLitt);
+        if (in_array($prixLitt, self::RECOMPENSES))
+            $this->prixLitt = $prixLitt;
+        else
+            $this->prixLitt = '';
     }
 
     public function getDifficulte(): float
@@ -25,17 +23,14 @@ class Roman extends Livre implements Recompensable
         return $this->noEnreg;
     }
 
+    public function getNbPages(): int
+    {
+        return $this->nbPages;
+    }
+
     public function getPrixLitt(): string
     {
         return $this->prixLitt;
-    }
-
-    public function setPrixLitt($prixLitt): void
-    {
-        if (!in_array($prixLitt, self::RECOMPENSES))
-            $this->prixLitt = $prixLitt;
-        else
-            echo 'Erreur : ce prix n\'existe pas';
     }
 
     public function getTitre(): string
@@ -43,13 +38,8 @@ class Roman extends Livre implements Recompensable
         return $this->titre;
     }
 
-    public function getNbPages(): int
+    public function getNiveau(): float
     {
-        return $this->nbPages;
-    }
-
-    public function setNoEnreg(string $noEnreg)
-    {
-        $this->noEnreg = $noEnreg;
+        return $this->nbPages * 1.5;
     }
 }

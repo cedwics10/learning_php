@@ -4,13 +4,17 @@ abstract class Document
     protected string $noEnreg;
     protected string $titre;
 
-    // getters
-    abstract public function getNiveau(): float;
-    abstract public function getNoEnreg(): string;
-    abstract public function getTitre(): string;
+    public function __construct(string $noEnreg, string $titre)
+    {
+        $this->noEnreg = $noEnreg;
+        $this->titre = $titre;
+    }
 
-    // setters
-    abstract public function setNoEnreg(string $noEnreg);
+    public function __toString()
+    {
+        $typeDoc = strtolower(get_class($this));
+        return '* [' . $this->noEnreg . '] Le document actuel est un ' .  $typeDoc . ' et se nomme "' . $this->titre . '".' . "\n";
+    }
 
-    abstract public function __toString();
+    abstract public function getNiveau();
 }

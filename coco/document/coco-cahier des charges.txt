@@ -1,0 +1,18 @@
+Nous sommes une agence de location d'espace de travail en commun (coworking).
+On dispose de plusieurs adresses comme lieu de coworking à Paris.
+Chaque adresse est un espace composé d'un certain nombre de poste individuel de travail.
+Pour une adresse donnée, le prix à la journée d'un poste est unique.
+Pour pouvoir louer des postes, l'utilisateur devra se créer un compte au prealable.
+Un utilisateur sera identifié par son adresse mail.
+Les visiteurs peuvent consulter les différentes adresses, des photos, et les prix.
+Un utilisateur connecté peut faire une réservation : 
+- pour une adresse donnée, 
+- pour un nombre de poste,
+- pour une date de début et une date de fin.
+L'interface devra proposé des dates valides pour le nombre de postes demandés,
+ou l'interface affichera pour chaque jour le nombre de places disponibles.
+L'utilisateur connecté aura accès à son historique des réservations.
+
+Les utilisateurs comprennet les clients et les administrateurs.
+Les admin on accès à une interface d'administration : Crud intelligent des tables.
+

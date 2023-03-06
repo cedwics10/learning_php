@@ -1,0 +1,7 @@
+Creer une nouveau projet :
+-------------------------
+0. Créer un nouveau dossier projet.
+1. Copier le framework dans le nouveau dossier projet (cf. readme.txt).
+2. Dans "/application/config/config.php" modifier la connexion à la base de données.
+3. Supprimer les fichiers générés du précédent projet.
+4. Mettre le script de création de la base de données dans "/document/" et exécuter le au moins une fois dans "adminer".

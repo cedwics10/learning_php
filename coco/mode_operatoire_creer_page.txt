@@ -1,0 +1,11 @@
+Créer une nouvelle page :
+------------------------
+- l'URL de la page est : index.php?m=module&a=action
+1. Aller dans le dossier "module", ouvrir le fichier ctr_<module>.class.php.
+2. Créer une méthode "a_action".
+3. Dans la méthode : 
+    - récupérer les donnés utiles en appelant une fonction de requête SQL.
+    - faire un "require" du gabarit
+4. Créer la vue associée à cette action : "vue_module_action.php" 
+    - écrire le code HTML qui permet d'afficher les données issues des requêtes SQL.
+

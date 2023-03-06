@@ -1,0 +1,24 @@
+Entités
+-------
+utilisateur
+- uti_id (pk)
+- uti_nom
+- uti_prenom
+- uti_mail
+- uti_mdp
+- uti_profil (user, admin)
+
+espace
+- esp_id (pk)
+- esp_nom
+- esp_description
+- esp_adresse
+- esp_nbposte
+- esp_prix (prix pour un poste, pour une journée)
+
+Association
+Un utilisateur reserve un espace pour un nombre de poste donné et pour une date de début et une date de fin.
+reservation (res_date_creation, res_date_debut, res_date_fin, res_nbposte) : 
+- utilisateur 0,n  
+- espace 0,n
+

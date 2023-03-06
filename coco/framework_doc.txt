@@ -1,0 +1,33 @@
+1. la classe Table
+attributs :
+	+ static PDO $link // connexion à la base de données
+	+ string $table // nom de la table
+	+ string $pk // nom du champ clé primaire
+méthodes :
+	+ __construct(string $table, string $pk)
+	+ selectAll(): array //return tous les enregistrements
+	+ select(int $id) : array //return 1 enregistrement
+	+ getFields(): array //liste des champs de la table
+	+ emptyRecord(): array //return return 1 enregistrement vide
+	+ updateSql(array $fields) : string //return la chaine sql pour une requete préparée update
+	+ insertSql(array $fields) : string //return la chaine sql pour une requete préparée insert
+	+ save(array $data): int //enregistre en base de données 1 enregistrement, et retourne la valeur de sa clé primaire 
+	+ delete(int $id) //supprime un enregistrement
+	+ static HTMLoptions(string $sql, string $pk, string $label, int $id) : string //balises option pour un select
+	
+
+2. la classe Ctr_controleur
+attributs :
+	+ string $module //nom du module
+	+ string $action //nom de l'action
+	+ string $gabarit //nom et chemin du fichier gabarit
+	+ string $vue //nom et chemin du fichier vue
+méthodes : 
+	+ __construct($module, $action, $gabarit="gabarit.php")
+
+3. L'interface I_crud 
+	+ a_index //affiche tous les enregsitrements
+	+ a_edit //affiche un formulaire d'édition/création d'un enregistrement
+	+ a_save //enregiste en base de données les données du formulaire
+	+ a_delete //supprime un enregistrement
+

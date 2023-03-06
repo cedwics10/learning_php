@@ -1,0 +1,16 @@
+body {
+	margin-top:100px;
+}
+
+.entete {
+	margin-top:100px;
+	background-color: rgb(204, 226, 233);
+}
+
+img.logo {
+	width:250px;
+}
+
+label {
+	font-weight:bold;
+}

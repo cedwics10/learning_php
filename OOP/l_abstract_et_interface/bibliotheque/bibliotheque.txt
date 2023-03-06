@@ -1,0 +1,33 @@
+Objectifs
+- Savoir concevoir et programmer une hiérarchie de classes
+- Savoir utiliser les attributs et méthodes statiques
+- Comprendre les mécanismes de l’héritage d’attributs et de méthodes
+- Connaître les notions de polymorphisme et de résolution d’appel de méthode
+
+I. Gestion d’une bibliothèque
+On souhaite écrire une application traitant des documents de natures diverses : des livres, des revues, des dictionnaires, etc.
+Les livres, à leur tour, peuvent être des romans ou des manuels.
+La hiérarchie peut se représenter ainsi :
+- Document
+	- Livre
+		- Roman
+		- Manuel
+	- Revue		
+	- Dictionnaire
+	
+Tous les documents ont un numéro d’enregistrement (un entier) et un titre (une chaîne de
+caractères).
+Les livres ont, en plus, un auteur (une chaîne) et un nombre de pages (un entier).
+Les romans ont éventuellement un prix littéraire (une chaine parmis les valeurs suivantes : GONCOURT, MEDICIS, INTERALLIE, RENAUDOT, FEMINA).
+Les manuels ont un niveau scolaire (une chaine ).
+Les revues ont un mois et une année (des entiers).
+Les dictionnaires ont une langue (une chaîne comme "anglais", "allemand", "espagnol", etc.).
+Tous les objets en question ici (livres, revues, dictionnaires, romans, etc.) doivent pouvoir être manipulés en tant que documents.
+
+Pour chaque documents on définit un "niveau de lecture" qui se calcule ainsi :
+- pour un document de type Roman le niveau de lecture est égale au nombre de page
+- pour un document de type Manuelle le niveau de lecture est égale au nombre de page x 1.2
+- pour un document de type Revue le niveau de lecture est égale au nombre de page x 0.8
+- pour un document de type Dictionnaire le niveau de lecture est égale au nombre de page x 1.5
+
+La classe Document sera abstraite et possédera une méthode abstraite getNiveau() qui retournera le niveau de lecture.
