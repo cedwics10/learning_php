@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Questionnaire de rentrée développeurs web</title>
+  </head>
+
+  <body>
+    <h1>Formulaire</h1>
+    <h2>Remplissez ce questionnaire par rapport à votre formuation.</h2>
+    <form method="post" action="reponse.php">
+      <label for="prenom">Prénom :</label>
+      <input type="text" name="prenom" /><br />
+      <label for="nom">Nom : </label> <input type="text" name="nom" /><br />
+      <label for="dddn">Date de naissance :</label>
+      <input type="date" name="ddn" /><br />
+      <label for="sexe">Sexe :</label> homme
+      <input type="radio" name="sexe" value="1" /> femme
+      <input type="radio" name="sexe" value="0" />
+      <br />
+      <label for="promotion">Promotion :</label>
+      <select name="promotion">
+        <option value="Prépa">Prépa</option>
+        <option value="DA1">DA1</option>
+        <option value="DA2">DA2</option>
+      </select>
+      <br />
+      <label for="infos"
+        >Sur quelles filières voulez-vous des informations :</label
+      >
+      Info : <input type="checkbox" name="infos[]" value="INFO" /> , CRCD :
+      <input type="checkbox" name="infos[]" value="CRCD" />, KINE :
+      <input type="checkbox" name="infos[]" value="KINE" />
+      <br />
+      <label for="newsletter">Newsletter :</label><br />
+      * Je désire voir la newsletter
+      <input type="checkbox" name="newsletter" checked /><br />
+
+      <input type="submit" name="bt_submit" value="Envoyer" />
+    </form>
+    <br />
+    <a href="promotion.php">Ensemble des étudiants</a>
+  </body>
+</html>
