@@ -1,0 +1,294 @@
+@font-face {
+	src: url('../fonts/ballet-webfont.woff2') format('woff2'),
+		url('../fonts/ballet-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-family: 'balletregular';
+}
+
+html,
+body {
+	height: 100%;
+	margin: 0;
+}
+
+header {
+	padding: 0;
+	margin: 0;
+}
+
+h1 .titre {
+	display: inline;
+}
+
+.image_avatar_petit {
+	max-width: 75px;
+	max-height: auto;
+	float: right;
+
+	padding: 5px;
+	margin-right: 10px;
+
+	border: 1px solid black;
+	display: none;
+}
+
+table {
+	margin: auto;
+	width: 80%;
+	border: 1px solid;
+}
+
+tr,
+td {
+	color: #002A52;
+	border-collapse: collapse;
+}
+
+tr,
+td {
+	padding: 3px 5px 3px 5px;
+}
+
+table .bloc_infos {
+	display: inline-block;
+}
+
+table #taches {
+	padding: 5px 15px;
+	display: block;
+	margin: 0px auto;
+}
+
+
+.titre_tache {
+	text-align: right;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	color: #015AB1;
+}
+
+
+.importance {
+	text-align: center;
+	margin: 2px 5px 2px 5px;
+}
+
+.termine_tache {
+	text-align: center;
+}
+
+.barrer {
+	text-decoration: line-through;
+}
+
+
+.page {
+	padding: 0;
+	margin: 0;
+
+	display: flex;
+	flex-direction: row;
+
+	min-height: 100%;
+}
+
+
+.page>div.menu {
+	background-color: #00396F;
+	color: white;
+
+	width: 400px;
+}
+
+.page>.menu>header>p {
+	margin: 20px 30px;
+	text-align: justify;
+}
+
+h1 {
+	color: #000033;
+	text-shadow: #FC0 1px 0 10px;
+	font-family: 'balletregular', "Lucida Console", "Courier New", monospace;
+
+	padding: 10px 20px 0px 20px;
+}
+
+.menu h3 {
+	color: white;
+	font-family: 'martelheavy', "Lucida Console", "Courier New", monospace;
+	padding: 0px 20px;
+}
+
+#menu {
+	width: 100%;
+	overflow: auto;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+
+	white-space: nowrap;
+}
+
+ul li {
+	color: #4E759B;
+	background-color: #002A53;
+
+	margin: 0;
+	padding: 0;
+	width: calc(100%-7px);
+}
+
+ul>li>a {
+	font-family: 'martelheavy', "Lucida Console", "Courier New", monospace;
+	color: #000204;
+	background-color: #002A53;
+	border: 1px solid #00182F;
+
+	text-decoration: none;
+
+	display: inline-block;
+	box-sizing: border-box;
+	width: 100%;
+
+	margin: 0;
+	padding: 4px 1px;
+}
+
+ul>li>a:hover {
+	color: #547A9E;
+	text-decoration: none;
+	background-color: #0046A9;
+}
+
+ul>li>a>span.lien {
+	padding-left: 10px;
+}
+
+.texte {
+	width: calc(100%-5px);
+	flex: 1;
+	display: block;
+	padding: 0px 5px;
+	color: #000204;
+	;
+	border-left: 3px solid #003399;
+
+	padding: 10px;
+	background-color: #FFFFFF;
+
+	text-align: justify;
+	font-family: 'martelheavy', "Lucida Console", "Courier New", monospace;
+	color: #000033;
+	line-height: 2;
+}
+
+.texte h3 {
+	text-align: center;
+	color: red;
+	text-decoration: underline;
+}
+
+#avatar_image {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+
+	border: 1px solid black;
+	padding: 4px;
+	margin: 20px auto;
+
+	height: 200px;
+	width: 200px;
+
+	max-width: 200px;
+	max-height: auto;
+}
+
+
+.contenu {
+	text-decoration: underline;
+	text-decoration-style: dotted;
+	text-decoration-color: #000033;
+	text-underline-offset: 3px;
+	padding: 0 1px;
+
+	color: #00182F;
+
+	text-align-last: left !important;
+}
+
+.contenu hr {
+	height: 1px;
+	border-top: 1px solid #000033;
+	border-bottom: 0;
+	border-left: 0;
+	border-right: 0;
+
+	width: calc(100%-10px);
+	margin: auto;
+}
+
+.texte span::after {
+	content: "";
+	display: inline-block;
+	width: 100%;
+}
+
+@media (max-width: 1000px) {
+
+	.page {
+		flex-direction: column;
+	}
+
+	.texte {
+		border-left: 0;
+	}
+
+
+	.page>div.menu {
+		width: calc(100%);
+	}
+
+	.contenu {
+		border: 0px !important;
+	}
+
+	a.sortout {
+		display: block;
+	}
+
+	span.comma {
+		/* Hide the text. */
+		text-indent: 100%;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+
+	#avatar_image {
+		display: none !important;
+	}
+
+	.image_avatar_petit {
+		display: inline !important;
+	}
+}
+
+@media (max-width: 600px) {
+	.description {
+		display: none;
+	}
+
+	.texte_gdesign {
+		display: none;
+	}
+
+
+}

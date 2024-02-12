@@ -1,0 +1,5 @@
+- Créer des tests unitaires
+- Créer un nouveau style pour les tableaux
+- Ajouter un pied de page
+- Ajouter une page d'administration
+- Générer de la donnée automatiquement pour tester le site

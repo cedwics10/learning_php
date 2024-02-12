@@ -1,0 +1,11 @@
+Planifier ses tâches pour sa journée.
+
+Aujourd'hui nous sommes le [DATE]
+
+Passer au jour suivant - Passer au jour précédent
+
+Liste des tâches du jour :
+- Faire le linge
+- Repasser 
+- etc.
+Liste des tâches terminées :

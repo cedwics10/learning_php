@@ -1,0 +1,1 @@
+ALTER TABLE taches ADD FOREIGN KEY taches(id_categorie) REFERENCES categories(id);

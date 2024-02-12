@@ -1,0 +1,6 @@
+Nous voulons organiser notre journée de développeurs (ou autre !)
+On crée un site web de tâches qui permet de gérer toute notre journée
+1. Une page permet de créer des catégories pour pouvoir insérer nos tâches à réalisr avant une date
+2. Nous créons des tâches dans une catégorie créé pour les faire avant une certaine date
+3. La page d'accueil nous affiche soit la liste de toutes les tâches, soit celle en fonction de certaines catégoreis
+4. ...

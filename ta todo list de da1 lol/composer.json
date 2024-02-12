@@ -1,0 +1,8 @@
+{
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "require": {
+        "clagiordano/phpunit-result-printer": "^3.0"
+    }
+}
